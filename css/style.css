@@ -1,0 +1,13 @@
+:root {
+    --primary-color: #3498db;
+    --spacing: 16px;
+    --font-size: 12px;
+}
+
+.hidden {
+    display: none;
+}
+
+.input-error {
+    color: red;
+}
