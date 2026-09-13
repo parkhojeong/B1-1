@@ -1,0 +1,114 @@
+/* Shared colors, fonts, spacing, themes, base HTML styles, and accessibility utilities. */
+
+:root {
+    color-scheme: light;
+    --bg: #f7f9fc;
+    --surface: #ffffff;
+    --surface-soft: #edf3ff;
+    --header-bg: #f7f9fc;
+    --text: #17243b;
+    --text-muted: #52627a;
+    --primary: #245bce;
+    --primary-hover: #1949ae;
+    --button-text: #ffffff;
+    --border: #d6dfed;
+    --error: #b42335;
+    --success: #166534;
+    --shadow: 0 8px 28px rgb(23 36 59 / 7%);
+    --shadow-hover: 0 14px 32px rgb(23 36 59 / 13%);
+    --font-body: Arial, "Apple SD Gothic Neo", sans-serif;
+    --font-sm: 0.875rem;
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 32px;
+    --space-xl: 48px;
+    --space-2xl: 72px;
+    --radius: 16px;
+    --content-width: 1120px;
+    --header-height: 76px;
+}
+
+[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #101827;
+    --surface: #192438;
+    --surface-soft: #21314b;
+    --header-bg: #101827;
+    --text: #eef3fc;
+    --text-muted: #b1bed3;
+    --primary: #9bc2ff;
+    --primary-hover: #c1d9ff;
+    --button-text: #102345;
+    --border: #37465f;
+    --error: #ff9caa;
+    --success: #86efac;
+    --shadow: 0 8px 28px rgb(0 0 0 / 15%);
+    --shadow-hover: 0 14px 32px rgb(0 0 0 / 25%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-height) + var(--space-md));
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg);
+    color: var(--text);
+    font: 1rem / 1.7 var(--font-body);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+h1, h2, h3, p {
+    margin: 0;
+}
+
+h1, h2, h3 {
+    line-height: 1.2;
+    letter-spacing: -0.035em;
+}
+
+h2 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+a {
+    color: var(--primary); text-underline-offset: 4px;
+}
+
+a:hover {
+    color: var(--primary-hover);
+}
+
+button, input, textarea {
+    font: inherit;
+}
+
+:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 4px;
+}
+
+.hidden, [hidden] {
+    display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+        transition: none !important;
+    }
+}
