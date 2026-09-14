@@ -1,40 +1,83 @@
-<html>
-    <link rel="stylesheet" href="./css/style.css">
+<!doctype html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark">
+    <head>
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
     <body>
-        Hello, I'm Hojeong.
+        
         <header>
             <nav>
                 <a href="#projects">View Projects</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
                 <a href="#contact">Contact</a>
             </nav>
         </header>
         
         <main>
+            <button id="theme-toggle">toggle theme</button>
+            <section id="hero">
+                <h1>Hello, I'm Hojeong.</h1>
+                    <a href="#projects">see projects</a>
+                    <a href="#contact">Contact</a>
+            </section>
+
             <section id="about">
-                <h3>About me</h3>
-                <div>skills: Typescript, React</div>
+                <h2>About me</h3>
+                <img src="./images/lego-profile.png" alt="my-profile-image" />
+                
+            </section>
+
+            <section id="skills">
+                <h2>Skills</h2>
+                <ul>
+                    <li>Typescript</li>
+                    <li>React</li>
+                </ul>
             </section>
 
             
             <section id="projects">
+                <h2>Projects</h2>
                 <p id="projects-status" role="status"></p>
-                <ul id="projects-list"></ul>
+                <ul id="projects-list">
+
+                </ul>
                 <button id="retry" type="button">Retry</button>
             </section>
             
-            <form id="contact">
-                <label for="name-input">Name:</label>
-                <input id="name-input" name="name" required/>
-                <p id="name-error input-error" aria-live="polite"></p>
-                
-                <label for="email">Email:</label>
-                <input id="email" name="email" type="email" required/>
-                
-                <label for="message">Message:</label>
-                <input id="message" name="message"/>
+            <section id="contact">
+                <h2>Contact</h2>
+                <form id="contact-form" novalidate>
+                    <label for="name-input">Name:</label>
+                    <input 
+                        id="name-input" 
+                        name="name" 
+                        required
+                        aria-describedby="name-error"/>
+                    <p id="name-error" class="input-error"></p>
+                    
+                    <label for="email">Email:</label>
+                    <input 
+                        id="email-input" 
+                        name="email" 
+                        type="email" 
+                        required
+                        aria-describedby="email-error"/>
+                    <p id="email-error" class="input-error"></p>
+                    
+                    <label for="message">Message:</label>
+                    <textarea 
+                        id="message-input" 
+                        name="message"
+                        aria-describedby="message-error">
+                    </textarea>
+                    <p id="message-error" class="input-error"></p>
 
-                <button type="submit">Send</button>
-            </form>
+                    <button type="submit">Send</button>
+                </form>
+            </section>
         </main>
         
         <footer>

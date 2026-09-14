@@ -1,7 +1,16 @@
 :root {
-    --primary-color: #3498db;
-    --spacing: 16px;
-    --font-size: 12px;
+    --bg: white;
+    --text: #222;
+    --font-body: Arial, sans-serif;
+
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 32px;
+}
+
+[data-theme="dark"] {
+    --bg: #181818;
+    --text: #eee;
 }
 
 .hidden {
@@ -10,4 +19,25 @@
 
 .input-error {
     color: red;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+}
+
+section {
+    padding: var(--space-lg);
+}
+
+nav {
+    display: flex;
+    gap: var(--space-md);
+}
+
+button {
+    background-color: var(--bg);
+    color: var(--text);
+    padding: var(--space-sm) var(--space-md);
 }
