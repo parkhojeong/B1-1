@@ -48,8 +48,8 @@ const header = document.querySelector(".site-header");
 const scrollTopButton = document.querySelector("#scroll-top");
 
 function updateScrollState() {
-    header.classList.toggle("scrolled", window.scrollY > 60);
-    scrollTopButton.classList.toggle("hidden", window.scrollY <= 300);
+    header.classList.toggle("scrolled", window.scrollY >= 60);
+    scrollTopButton.classList.toggle("hidden", window.scrollY < 300);
 }
 
 window.addEventListener("scroll", updateScrollState, { passive: true });

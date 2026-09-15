@@ -150,6 +150,49 @@ button:hover, .button:hover {
     font-size: var(--font-sm);
 }
 
+#project-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+}
+
+#project-filters button {
+    padding: 8px 14px;
+    font-size: var(--font-sm);
+    overflow-wrap: anywhere;
+    max-width: 100%;
+}
+
+#project-filters button[aria-pressed="true"] {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: var(--button-text);
+}
+
+.typing-line {
+    display: grid;
+}
+
+.typing-reserve, #hero-typing {
+    grid-area: 1 / 1;
+}
+
+.typing-reserve {
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+}
+
+#hero-typing.is-typing::after {
+    content: "";
+    display: inline-block;
+    height: 1em;
+    margin-left: 2px;
+    border-left: 2px solid var(--primary);
+    vertical-align: -0.1em;
+}
+
 #projects-status:not(:empty) {
     margin-bottom: var(--space-md);
     padding: var(--space-md);
@@ -204,7 +247,22 @@ textarea {
 }
 
 #form-status {
-    color: var(--success); font-size: var(--font-sm);
+    color: var(--text-muted);
+    font-size: var(--font-sm);
+}
+
+#form-status[data-state="success"] {
+    color: var(--success);
+}
+
+#form-status[data-state="error"] {
+    color: var(--error);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+    transform: none;
 }
 
 #scroll-top {
