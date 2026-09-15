@@ -1,93 +1,126 @@
-<!doctype html lang="en" data-theme="dark">
-<html lang="en" data-theme="dark">
+<!doctype html>
+<html lang="en" data-theme="light">
     <head>
-        <link rel="stylesheet" href="./css/style.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Hojeong's personal portfolio: about me, skills, and projects.">
+        <title>Hojeong | Developer Portfolio</title>
+        <link rel="stylesheet" href="./css/base.css">
+        <link rel="stylesheet" href="./css/layout.css">
+        <link rel="stylesheet" href="./css/components.css">
+        <script src="./js/api.js" defer></script>
+        <script src="./js/projects.js" defer></script>
+        <script src="./js/form.js" defer></script>
+        <script src="./js/theme.js" defer></script>
+        <script src="./js/navigation.js" defer></script>
     </head>
     <body>
-        
-        <header>
-            <nav>
-                <a href="#projects">View Projects</a>
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </header>
-        
-        <main>
-            <button id="theme-toggle">toggle theme</button>
-            <section id="hero">
-                <h1>Hello, I'm Hojeong.</h1>
-                    <a href="#projects">see projects</a>
+        <a class="skip-link" href="#main-content">Skip to content</a>
+
+        <header class="site-header">
+            <div class="header-inner container">
+                <a class="brand" href="#hero" aria-label="Hojeong — home">
+                    <img src="./images/logo.png" alt="" width="44" height="44">
+                    <span>Hojeong.</span>
+                </a>
+
+                <nav id="menu-nav" aria-label="Main navigation">
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
                     <a href="#contact">Contact</a>
+                </nav>
+
+                <div class="header-actions">
+                    <button id="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
+                    <button id="hamburger-menu" type="button" aria-label="Open menu"
+                        aria-controls="menu-nav" aria-expanded="false">
+                        <img src="./images/hamburger.svg" alt="" width="24" height="24">
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main id="main-content" class="container" tabindex="-1">
+            <section id="hero" aria-labelledby="hero-title" tabindex="-1">
+                <p class="eyebrow">My developer portfolio</p>
+                <h1 id="hero-title">Hello, I'm <span>Hojeong.</span></h1>
+                <p class="intro">Learning how the web works, one project at a time.</p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="#projects">View projects <span aria-hidden="true">↗</span></a>
+                    <a class="button" href="#contact">Get in touch</a>
+                </div>
             </section>
 
-            <section id="about">
-                <h2>About me</h3>
-                <img src="./images/lego-profile.png" alt="my-profile-image" />
-                
+            <section id="about" class="reveal-target" aria-labelledby="about-title" tabindex="-1">
+                <div class="about-layout">
+                    <img class="profile-image" src="./images/lego-profile.png"
+                        alt="A smiling LEGO-style character representing Hojeong" width="280" height="280">
+                    <div class="about-copy">
+                        <p class="eyebrow">A little introduction</p>
+                        <h2 id="about-title">About me</h2>
+                        <p>I'm exploring web development through hands-on projects. This portfolio is built with HTML, CSS, and JavaScript as part of that journey.</p>
+                    </div>
+                </div>
             </section>
 
-            <section id="skills">
-                <h2>Skills</h2>
-                <ul>
-                    <li>Typescript</li>
+            <section id="skills" class="reveal-target" aria-labelledby="skills-title" tabindex="-1">
+                <div class="section-heading">
+                    <h2 id="skills-title">Skills</h2>
+                    <p>Technologies I'm exploring and building with.</p>
+                </div>
+                <ul class="skills-list">
+                    <li>TypeScript</li>
                     <li>React</li>
                 </ul>
             </section>
 
-            
-            <section id="projects">
-                <h2>Projects</h2>
+            <section id="projects" aria-labelledby="projects-title" tabindex="-1">
+                <div class="section-heading">
+                    <h2 id="projects-title">Projects</h2>
+                    <p>A selection of repositories from my GitHub account.</p>
+                </div>
                 <p id="projects-status" role="status"></p>
-                <ul id="projects-list">
-
-                </ul>
-                <button id="retry" type="button">Retry</button>
+                <ul id="projects-list" aria-busy="false"></ul>
+                <button id="retry" class="hidden" type="button">Try again</button>
             </section>
-            
-            <section id="contact">
-                <h2>Contact</h2>
-                <form id="contact-form" novalidate>
-                    <label for="name-input">Name:</label>
-                    <input 
-                        id="name-input" 
-                        name="name" 
-                        required
-                        aria-describedby="name-error"/>
-                    <p id="name-error" class="input-error"></p>
-                    
-                    <label for="email">Email:</label>
-                    <input 
-                        id="email-input" 
-                        name="email" 
-                        type="email" 
-                        required
-                        aria-describedby="email-error"/>
-                    <p id="email-error" class="input-error"></p>
-                    
-                    <label for="message">Message:</label>
-                    <textarea 
-                        id="message-input" 
-                        name="message"
-                        aria-describedby="message-error">
-                    </textarea>
-                    <p id="message-error" class="input-error"></p>
 
-                    <button type="submit">Send</button>
+            <section id="contact" class="contact-layout reveal-target" aria-labelledby="contact-title" tabindex="-1">
+                <div class="section-heading">
+                    <p class="eyebrow">Say hello</p>
+                    <h2 id="contact-title">Contact</h2>
+                    <p>This demo checks your input without sending a message.</p>
+                </div>
+                <form id="contact-form" novalidate>
+                    <div class="form-field">
+                        <label for="name-input">Name (required)</label>
+                        <input id="name-input" name="name" autocomplete="name" required aria-describedby="name-error">
+                        <p id="name-error" class="input-error"></p>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="email-input">Email (required)</label>
+                        <input id="email-input" name="email" type="email" autocomplete="email" required aria-describedby="email-error">
+                        <p id="email-error" class="input-error"></p>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="message-input">Message (required)</label>
+                        <textarea id="message-input" name="message" rows="5" required aria-describedby="message-error"></textarea>
+                        <p id="message-error" class="input-error"></p>
+                    </div>
+
+                    <button class="button-primary" type="submit">Submit demo</button>
+                    <p id="form-status" role="status"></p>
                 </form>
             </section>
         </main>
-        
-        <footer>
-            (C) 2026 parkhojeong | <a href="https://github.com/parkhojeong">Github</a>
+
+        <footer class="site-footer container">
+            <p>© 2026 Hojeong</p>
+            <a href="https://github.com/parkhojeong">GitHub <span aria-hidden="true">↗</span></a>
         </footer>
 
+        <button id="scroll-top" class="hidden" type="button" aria-label="Back to top">↑ Top</button>
     </body>
-
-
-    <script src="./js/api.js"></script>
-    <script src="./js/index.js"></script>
-
 </html>
