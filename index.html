@@ -17,16 +17,14 @@
         <script src="./js/hero.js" defer></script>
     </head>
     <body>
-        <a class="skip-link" href="#main-content">Skip to content</a>
-
         <header class="site-header">
             <div class="header-inner container">
-                <a class="brand" href="#hero" aria-label="Hojeong — home">
+                <a class="brand" href="#hero">
                     <img src="./images/logo.png" alt="" width="44" height="44">
                     <span>Hojeong.</span>
                 </a>
 
-                <nav id="menu-nav" aria-label="Main navigation">
+                <nav id="menu-nav">
                     <a href="#about">About</a>
                     <a href="#skills">Skills</a>
                     <a href="#projects">Projects</a>
@@ -34,30 +32,29 @@
                 </nav>
 
                 <div class="header-actions">
-                    <button id="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
-                    <button id="hamburger-menu" type="button" aria-label="Open menu"
-                        aria-controls="menu-nav" aria-expanded="false">
-                        <img src="./images/hamburger.svg" alt="" width="24" height="24">
+                    <button id="theme-toggle" type="button">Dark mode</button>
+                    <button id="hamburger-menu" type="button">
+                        <img src="./images/hamburger.svg" alt="Menu" width="24" height="24">
                     </button>
                 </div>
             </div>
         </header>
 
-        <main id="main-content" class="container" tabindex="-1">
-            <section id="hero" aria-labelledby="hero-title" tabindex="-1">
+        <main class="container">
+            <section id="hero" tabindex="-1">
                 <p class="eyebrow">My developer portfolio</p>
                 <h1 id="hero-title">Hello, I'm <span>Hojeong.</span></h1>
                 <p class="intro typing-line">
                     <span class="typing-reserve">Learning how the web works, one project at a time.</span>
-                    <span id="hero-typing" aria-hidden="true">Learning how the web works, one project at a time.</span>
+                    <span id="hero-typing">Learning how the web works, one project at a time.</span>
                 </p>
                 <div class="hero-actions">
-                    <a class="button button-primary" href="#projects">View projects <span aria-hidden="true">↗</span></a>
+                    <a class="button button-primary" href="#projects">View projects <span>↗</span></a>
                     <a class="button" href="#contact">Get in touch</a>
                 </div>
             </section>
 
-            <section id="about" class="reveal-target" aria-labelledby="about-title" tabindex="-1">
+            <section id="about" class="reveal-target" tabindex="-1">
                 <div class="about-layout">
                     <img class="profile-image" src="./images/lego-profile.png"
                         alt="A smiling LEGO-style character representing Hojeong" width="280" height="280">
@@ -69,7 +66,7 @@
                 </div>
             </section>
 
-            <section id="skills" class="reveal-target" aria-labelledby="skills-title" tabindex="-1">
+            <section id="skills" class="reveal-target" tabindex="-1">
                 <div class="section-heading">
                     <h2 id="skills-title">Skills</h2>
                     <p>Technologies I'm exploring and building with.</p>
@@ -80,18 +77,18 @@
                 </ul>
             </section>
 
-            <section id="projects" aria-labelledby="projects-title" tabindex="-1">
+            <section id="projects" tabindex="-1">
                 <div class="section-heading">
                     <h2 id="projects-title">Projects</h2>
                     <p>A selection of repositories from my GitHub account.</p>
                 </div>
-                <p id="projects-status" role="status"></p>
-                <div id="project-filters" role="group" aria-label="Filter projects by language" hidden></div>
-                <ul id="projects-list" aria-busy="false"></ul>
+                <p id="projects-status"></p>
+                <div id="project-filters" hidden></div>
+                <ul id="projects-list"></ul>
                 <button id="retry" class="hidden" type="button">Try again</button>
             </section>
 
-            <section id="contact" class="contact-layout reveal-target" aria-labelledby="contact-title" tabindex="-1">
+            <section id="contact" class="contact-layout reveal-target" tabindex="-1">
                 <div class="section-heading">
                     <p class="eyebrow">Say hello</p>
                     <h2 id="contact-title">Contact</h2>
@@ -100,33 +97,33 @@
                 <form id="contact-form" method="POST" novalidate>
                     <div class="form-field">
                         <label for="name-input">Name (required)</label>
-                        <input id="name-input" name="name" autocomplete="name" required aria-describedby="name-error">
+                        <input id="name-input" name="name" autocomplete="name" required>
                         <p id="name-error" class="input-error"></p>
                     </div>
 
                     <div class="form-field">
                         <label for="email-input">Email (required)</label>
-                        <input id="email-input" name="email" type="email" autocomplete="email" required aria-describedby="email-error">
+                        <input id="email-input" name="email" type="email" autocomplete="email" required>
                         <p id="email-error" class="input-error"></p>
                     </div>
 
                     <div class="form-field">
                         <label for="message-input">Message (required)</label>
-                        <textarea id="message-input" name="message" rows="5" required aria-describedby="message-error"></textarea>
+                        <textarea id="message-input" name="message" rows="5" required></textarea>
                         <p id="message-error" class="input-error"></p>
                     </div>
 
                     <button class="button-primary" type="submit">Send message</button>
-                    <p id="form-status" role="status"></p>
+                    <p id="form-status"></p>
                 </form>
             </section>
         </main>
 
         <footer class="site-footer container">
             <p>© 2026 Hojeong</p>
-            <a href="https://github.com/parkhojeong">GitHub <span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/parkhojeong">GitHub <span>↗</span></a>
         </footer>
 
-        <button id="scroll-top" class="hidden" type="button" aria-label="Back to top">↑ Top</button>
+        <button id="scroll-top" class="hidden" type="button">↑ Top</button>
     </body>
 </html>

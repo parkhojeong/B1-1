@@ -1,32 +1,36 @@
-// Keep the full sentence accessible and reserve its layout while typing visually.
-const heroTyping = document.querySelector("#hero-typing");
-const heroSentence = document.querySelector(".typing-reserve").textContent;
-const typingMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-let typingTimer;
-let typedCharacters = 0;
+// Keep typing state local and reserve the sentence's layout to prevent shifts.
+class HeroTyping {
+    constructor(element, sentence) {
+        this.element = element;
+        this.sentence = sentence;
+        this.typedCharacters = 0;
+        this.startDelay = 200;
+        this.characterDelay = 40;
+        this.render();
+        window.setTimeout(() => this.typeNextCharacter(), this.startDelay);
+    }
 
-function finishTyping() {
-    window.clearTimeout(typingTimer);
-    heroTyping.textContent = heroSentence;
-    heroTyping.classList.remove("is-typing");
-}
+    isComplete() {
+        return this.typedCharacters >= this.sentence.length;
+    }
 
-function typeNextCharacter() {
-    typedCharacters += 1;
-    heroTyping.textContent = heroSentence.slice(0, typedCharacters);
-    if (typedCharacters < heroSentence.length) {
-        typingTimer = window.setTimeout(typeNextCharacter, 40);
-    } else {
-        finishTyping();
+    typeNextCharacter() {
+        if (this.isComplete()) return;
+        this.typedCharacters += 1;
+        this.render();
+
+        if (!this.isComplete()) {
+            window.setTimeout(() => this.typeNextCharacter(), this.characterDelay);
+        }
+    }
+
+    render() {
+        this.element.textContent = this.sentence.slice(0, this.typedCharacters);
+        this.element.classList.toggle("is-typing", !this.isComplete());
     }
 }
 
-if (!typingMotionQuery.matches) {
-    heroTyping.textContent = "";
-    heroTyping.classList.add("is-typing");
-    typingTimer = window.setTimeout(typeNextCharacter, 200);
-}
-
-typingMotionQuery.addEventListener("change", (event) => {
-    if (event.matches) finishTyping();
-});
+const heroTyping = new HeroTyping(
+    document.querySelector("#hero-typing"),
+    document.querySelector(".typing-reserve").textContent
+);

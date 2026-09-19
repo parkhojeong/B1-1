@@ -102,13 +102,3 @@ button, input, textarea {
 .hidden, [hidden] {
     display: none !important;
 }
-
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-
-    *, *::before, *::after {
-        transition: none !important;
-    }
-}
